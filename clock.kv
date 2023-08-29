@@ -1,0 +1,56 @@
+
+<MyButton@MDRaisedButton>
+    font_name: 'Roboto'
+
+
+<MyLabel@MDLabel>
+    halign: "center"
+    font_name: 'Roboto'
+    markup: True
+    font_size: "60sp"
+
+
+
+<MainScreen>
+    time_label: chrono_label
+    md_bg_color: app.theme_cls.bg_normal
+
+
+    MDBoxLayout:
+        orientation: "vertical"
+        pos_hint: {"center_x": .5}
+        padding: dp(0), dp(100)
+
+
+        # MyLabel:
+        #     id: time_label
+        #     text: "[b] 00 [/b]: 00 : 00 %p"
+        #     # font_size: 5
+
+        MyLabel:
+            id: chrono_label
+            # padding: dp(150),dp(100)
+            text: "[b]00[/b]:00.00"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(24)
+            # pos_hint: {"center_x": 0.8}
+            height: dp(100)
+            # TODO: Adjust the paddings to be relative to window size
+            padding: dp(10)
+            size_hint_y: None
+            adaptive_height: True
+
+            MyButton:
+                id: start_stop_btn
+                text: "Start"
+                on_release: root.start_stop_chrono()
+
+
+            MyButton:
+                id: reset_btn
+                text: "Reset"
+                md_bg_color: 1,0,0,.8
+                on_release: root.reset_chrono()
+

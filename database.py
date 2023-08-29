@@ -1,4 +1,5 @@
 import psycopg2
+import time
 from datetime import datetime
 
 
@@ -28,8 +29,7 @@ def write_to_database(data):
 
 if __name__ == "__main__":
     now = datetime.now()
-
-    current_time = now.strftime("%H:%M:%S")
-    print("Current Time =", current_time)
-    data_to_insert = (3, "user3", 'elloonemore@gmail.com', now)
+    time.sleep(2.1)
+    print(datetime.now()-now)
+    data_to_insert = (4, "user4", 'interval@gmail.com', now)
     write_to_database(data_to_insert)
